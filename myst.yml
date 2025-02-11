@@ -1,0 +1,15 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  id: 1bceb483-d735-4f3a-9b12-51d5ecf02a6d
+  # title:
+  # description:
+  # keywords: []
+  # authors: []
+  github: https://github.com/TeachBooks/Useful_python_code
+  # To autogenerate a Table of Contents, run "myst init --write-toc"
+site:
+  template: book-theme
+  # options:
+  #   favicon: favicon.ico
+  #   logo: site_logo.png
