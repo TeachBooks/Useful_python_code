@@ -1,9 +1,13 @@
-# Useful python code
-
+````{margin}
 ```{attributiongrey} Attribution
 :class: attribution
 This page reuses BSD 3-Clause License content from {cite:t}`useful_code`. {fa}`quote-left`{ref}`Find out more here.<external_resources>`
 ```
+````
+
+# Useful python code
+
+
 
  - [Snippitall](./snippit.ipynb) to insert the same code snippet at a certain point in each md file in a specific folder and all subfolder. 
  - [Snippitonce](./snippit.ipynb) to insert the same code snippet at a certain point in each md file only in a specific folder. 
