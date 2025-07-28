@@ -2,10 +2,19 @@ import qrcode
 from PIL import Image
 import requests
 from io import BytesIO
+import re
+
+def extract_video_id(youtube_url):
+    """Extraheert de video-ID uit een standaard- of embed-YouTube-link."""
+    match = re.search(r"(?:v=|\/embed\/|\/vi\/|youtu\.be\/)([A-Za-z0-9_-]{11})", youtube_url)
+    if match:
+        return match.group(1)
+    else:
+        raise ValueError("Geen geldige YouTube-link gevonden.")
 
 def get_youtube_thumbnail(youtube_url):
     """Haalt de thumbnail op van een YouTube-video."""
-    video_id = youtube_url.split("v=")[-1].split("&")[0]  # Pak de video-ID
+    video_id = extract_video_id(youtube_url)
     thumbnail_url = f"https://img.youtube.com/vi/{video_id}/hqdefault.jpg"
     
     response = requests.get(thumbnail_url)
@@ -50,6 +59,6 @@ def combine_thumbnail_and_qr(youtube_url, output_file="output.png", qr_size_rati
     except Exception as e:
         print(f"Fout: {e}")
 
-# Gebruik de functie met een YouTube-link
-youtube_link = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-combine_thumbnail_and_qr(youtube_link, "youtube_qr_centered.png")
+# Gebruik de functie met een YouTube-embed-link
+youtube_embed_link = "https://www.youtube.com/embed/AF8d72mA41M?si=-2jLw0ajdfY6VGUG"
+combine_thumbnail_and_qr(youtube_embed_link, "youtube_qr_centered.png")
